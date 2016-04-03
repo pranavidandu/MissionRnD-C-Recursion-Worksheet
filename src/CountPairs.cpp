@@ -29,7 +29,6 @@ int count_pairs(char *str, int len, int start, int count){
 		start++;
 		if (start + 2 > len - 1)
 			return count;
-		
 	}
 	else{
 		start++;
@@ -42,9 +41,9 @@ int count_pairs(char *str, int len, int start, int count){
 
 int count_pairs_wrapper(char *str,int len){
 	//Wrapper function which might call a recursive function ,which might take extra parameters .
-	int count = count_pairs(str, len, 0, 0);
-	printf("count  %d\n", count);
-	return count;
+	if (str == NULL || len <= 0)
+		return 0;
+	return count_pairs(str, len, 0, 0);
 	//return 0;
 
 }
