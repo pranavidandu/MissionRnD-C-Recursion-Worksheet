@@ -33,8 +33,15 @@ Note : Check the function Parameters ,Its a double pointer .
 
 #include "stdafx.h"
 #include<stdlib.h>
+void spiral_wrapper(int *result, int **input_array, int r, int c, int index, int i, int j){
+	result[index++] = input_array[i++][j++];
 
+}
 int *spiral(int rows, int columns, int **input_array)
-{
-	return NULL;
+{ if (*input_array == NULL)
+		return NULL;
+	int *result = (int*)malloc(sizeof(int) * rows * columns);
+	//for (int i = 0; i < )
+	spiral_wrapper(result, input_array, rows, columns, 0, 0, 0);
+	return result;
 }

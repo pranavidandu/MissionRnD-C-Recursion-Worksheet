@@ -2,15 +2,17 @@
 #include <stdlib.h>
 
 #include "FunctionHeaders.h"
-
 int main(){
 	
 	//Check NSnipers
 
 	//Check CountPairs Sample Code 
-
+	int pairs = count_pairs_wrapper("abababababxxxyyy", 16);
+	printf("pairs %d\n", pairs);
+	
 	//Check Steps Sample Code
-
+	int result = get_steps(4);
+	printf("steps %d\n", result);
 	//Check Spiral Sample Code
 
 	//Check Maze Sample Code

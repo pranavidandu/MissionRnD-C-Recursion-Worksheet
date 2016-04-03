@@ -23,8 +23,13 @@
 */
 #include "stdafx.h"
 
-
+int steps(int s){
+	if (s <= 1)
+		return s;
+	return steps(s - 1) + steps(s - 2);
+}
 int get_steps(int s)
-{
+{ if (s <= 0)
 	return 0;
+return steps(s + 1);
 }

@@ -78,6 +78,7 @@ namespace spec
 		void SmallString3()
 		{
 			int pairs = count_pairs_wrapper("ababa",5);
+			printf(" fg%d\n", pairs);
 			Assert::AreEqual(3, pairs, L"0 Str pairs should be 3", 1, 2);
 		}
 		[TestMethod, Timeout(3000)]
