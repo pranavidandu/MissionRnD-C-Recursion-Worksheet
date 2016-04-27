@@ -10,7 +10,22 @@ void generate_array(int **input_array, int rows, int columns, int seq)
 			input_array[i][j] = (k++)*seq;
 }
 int main(){
-	
+	int n = 16;
+	int board[16][16];
+	int i = 0, j = 0;
+	for (i = 0; i < n; i++){
+		for (j = 0; j < n; j++){
+			board[i][j] = 0;
+		}
+	}
+
+	int result = solve_nsnipers(&board[0][0], n);
+	printf("result is %d\n", result);
+	for (int i = 0; i <n; i++){
+		for (int j = 0; j < n; j++)
+			printf("%d ", board[i][j]);
+		printf("\n");
+	}
 	//Check NSnipers
 
 	//Check CountPairs Sample Code 
@@ -38,7 +53,7 @@ int main(){
 		printf("%d ", output_array[i]);*/
 	//Check Maze Sample Code
 
-	int maze[3][5] = {
+	/*int maze[3][5] = {
 		{ 1, 0, 0, 0, 1 },
 		{ 1, 1, 0, 1, 1 },
 		{ 0, 1, 1, 1, 0 }
@@ -54,9 +69,9 @@ int main(){
 	};
 
 	int m = 4, n = 3;
-	int x1 = 3, y1 = 0, x2 = 0, y2 = 2;*/
+	int x1 = 3, y1 = 0, x2 = 0, y2 = 2;
 	int check=path_exists(&maze[0][0], m, n, x1, y1, x2, y2);
-	printf("%d value\n", check);
+	printf("%d value\n", check);*/
 
 	
 	return 0;

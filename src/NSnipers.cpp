@@ -43,6 +43,46 @@ P.S: The Above Problem is just a modified version of a popular BackTracking prob
 */
 
 #include "stdafx.h"
-int solve_nsnipers(int *battlefield, int n){
+int safe_position(int *battlefield, int r, int c, int n){
+	int i, j;
+
+	//row check on left side
+	for (i = 0; i < c; i++)
+		if (*((battlefield + r*n) + i))
+			return 0;
+
+	//upper diagonal on left side
+	i = r, j = c;
+	while(i >= 0 && j >= 0)
+		if (*((battlefield + (i--)*n) + j--))
+			return 0;
+
+	//lower diagonal on left side
+	i = r, j = c;
+	while(j >= 0 && i<n)
+		if (*((battlefield + (i++)*n) + (j--)))
+			return 0;
+
+	return 1;
+}
+//placing the snipers columns wise
+int put_nsnipers(int *battlefield, int c, int n){
+	if (c >= n)
+		return 1;
+	for (int i = 0; i < n; i++){
+		if (safe_position((int*)battlefield, i, c, n)){
+			*((battlefield + i*n) + c) = 1;
+			
+			if (put_nsnipers(battlefield, c + 1, n))//check for rest of the sniper positions
+				return 1;
+			//placed sniper in wrong position then make to 0
+			*((battlefield + i*n) + c) = 0;
+		}
+	}
 	return 0;
+}
+int solve_nsnipers(int *battlefield, int n){
+	if (battlefield == NULL || n <= 0)
+		return 0;
+	return put_nsnipers((int *)battlefield, 0, n);
 }
